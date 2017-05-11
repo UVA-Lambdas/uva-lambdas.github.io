@@ -1,0 +1,12 @@
+{
+  "name": "UVA-Lambdas-Website",
+  "version": "1.0.0",
+  "description": "Website for Lambdas @ UVA",
+  "main": "index.js",
+  "repository": "https://github.com/UVA-Lambdas/uva-lambdas.github.io",
+  "author": "Aki Gao",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^2.5.1"
+  }
+}
