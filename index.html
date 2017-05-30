@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  </head>
 
-  <body>
-    Under Construction.
-  </body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <script>
+    var l = window.location;
+    var bundle = document.createElement('script');
+    var style = document.createElement('link');
+    style.rel = 'stylesheet';
+    if (l.hostname === 'localhost') {
+      bundle.src = '/bundle.js';
+      style.href = '/style.css';
+    } else {
+      bundle.src = l.href.split('?')[0] + 'bundle.js';
+      style.href = l.href.split('?')[0] + 'style.css';
+    }
+    document.getElementsByTagName('html')[0].appendChild(bundle);
+    document.getElementsByTagName('head')[0].appendChild(style);
+    if (l.search) {
+      var url = '' + l.pathname + l.search.replace('?', '');
+      window.history.replaceState(null, null, url);
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container"></div>
+</body>
+
 </html>
