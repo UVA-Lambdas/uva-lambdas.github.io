@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script>
+    // n specifies whether this is github account page (0) or project page (1)
+    var n = 1;
+    var l = window.location;
+    var paths = l.pathname.split('/');
+    var root = l.origin + '/' + paths.splice(0, n + 1)[n];
+    var route = paths.join('/');
+    l.replace(root + '/?' + route);
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
