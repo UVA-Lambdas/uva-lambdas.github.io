@@ -15,11 +15,8 @@ deploy:
   github_token: $GITHUB_TOKEN
   local_dir: ./
   # blocklist
-  branches:
-  except:
-    - dev
-    - master
 
+branches:
   # safelist
   branches:
   only:
