@@ -11,7 +11,7 @@
     style.rel = 'stylesheet';
     if (l.hostname === 'localhost') {
       bundle.src = '/bundle.js';
-      style.href = '/style.css';
+      style.href = '/bundle.css';
     } else {
       bundle.src = l.href.split('?')[0] + 'bundle.js';
       style.href = l.href.split('?')[0] + 'style.css';

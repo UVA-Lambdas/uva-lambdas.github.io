@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function webpackConfig(env) {
   return {
@@ -8,13 +9,6 @@ module.exports = function webpackConfig(env) {
       path: __dirname,
       filename: 'bundle.js',
     },
-
-    plugins: [
-      new webpack.DefinePlugin({
-        IS_GITHUB_PROJECT: env.is_gh_project,
-        IS_PROD: env.prod,
-      }),
-    ],
 
     module: {
       loaders: [
@@ -27,7 +21,25 @@ module.exports = function webpackConfig(env) {
           },
         },
       ],
+      rules: [
+        {
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader',
+          ],
+        },
+      ],
     },
+
+    plugins: [
+      new webpack.DefinePlugin({
+        IS_GITHUB_PROJECT: env.is_gh_project,
+        IS_PROD: env.prod,
+      }),
+      new ExtractTextPlugin('bundle.css'),
+    ],
 
     resolve: {
       extensions: ['.js', '.jsx'],
