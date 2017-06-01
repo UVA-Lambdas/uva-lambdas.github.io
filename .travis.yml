@@ -14,5 +14,13 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   local_dir: ./
-  on:
-    branch: dev-master
+  # blocklist
+  branches:
+  except:
+    - dev
+    - master
+
+  # safelist
+  branches:
+  only:
+    - dev-master
